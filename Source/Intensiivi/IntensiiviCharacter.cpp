@@ -33,4 +33,16 @@ AIntensiiviCharacter::AIntensiiviCharacter(const FObjectInitializer& ObjectIniti
 	TopDownCameraComponent->AttachTo(CameraBoom, USpringArmComponent::SocketName);
 	TopDownCameraComponent->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
+	spotlightComponent = CreateDefaultSubobject<USpotLightComponent>(TEXT("Spotlight"));
+	//spotlightComponent->MoveComponent()
+	spotlightComponent->AttachTo(RootComponent);
+	spotlightComponent->Intensity = 67412421.0f;
+	spotlightComponent->SetMobility(EComponentMobility::Movable);
+	FVector oldPos = spotlightComponent->GetComponentLocation();
+	FVector newTempPos = GetActorForwardVector() * 50;
+	newTempPos.Z += 50;
+	spotlightComponent->SetRelativeLocation(newTempPos);
+	
+	GetMesh()->SetSimulatePhysics(true);
+
 }

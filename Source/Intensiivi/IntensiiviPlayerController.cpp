@@ -24,6 +24,23 @@ void AIntensiiviPlayerController::PlayerTick(float DeltaTime)
 	{
 		SpawnGrenade();
 	}
+	if (WasInputKeyJustReleased(EKeys::F))
+	{
+		ToggleFlashLight();
+	}
+}
+
+void AIntensiiviPlayerController::ToggleFlashLight()
+{
+	TArray<USpotLightComponent*> components;
+
+	GetPawn()->GetComponents(components);
+	if (components.Num() > 0)
+	{
+		USpotLightComponent* flashLight = components[0];
+		flashLight->Intensity = (flashLight->Intensity == 0 ? 67412421 : 0);
+		//do stuff with FoundComp
+	}
 }
 void AIntensiiviPlayerController::SpawnGrenade()
 {

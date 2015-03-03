@@ -35,6 +35,8 @@ protected:
 
 	//SPAWN GRENADE
 	void SpawnGrenade();
+	//TOGGLE FLASHLIGHT ON AND OFF
+	void ToggleFlashLight();
 };
 
 

@@ -16,6 +16,8 @@ class AIntensiiviCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Flashlight, meta = (AllowPrivateAccess = "true"))
+	class USpotLightComponent* spotlightComponent;
 
 public:
 	AIntensiiviCharacter(const FObjectInitializer& ObjectInitializer);
@@ -24,5 +26,8 @@ public:
 	FORCEINLINE class UCameraComponent* GetTopDownCameraComponent() const { return TopDownCameraComponent; }
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+
+	FORCEINLINE class USpotLightComponent* GetSpotlight() const { return spotlightComponent; }
+	USpotLightComponent * GetSpotLight(){ return spotlightComponent; }
 };
 

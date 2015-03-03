@@ -12,7 +12,7 @@ class INTENSIIVI_API AGrenadeActor : public AActor
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Grenade, meta = (AllowPrivateAccess = "true"))
 	class UStaticMeshComponent *grenadeMesh;
-	
+
 public:	
 	// Sets default values for this actor's properties
 	AGrenadeActor(const class FPostConstructInitializeProperties& PCIP);
@@ -22,10 +22,12 @@ public:
 	
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
-	void test();
+	void destroy();
 
-
+	UParticleSystem *particleSystem;
 	FORCEINLINE class UStaticMeshComponent* GetGrenadeMesh() const { return grenadeMesh; }
 	
-	
+	void AGrenadeActor::ReceiveHit(class UPrimitiveComponent* MyComp, AActor* Other, class UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit);
+private:
+	bool hasExploded;
 };
