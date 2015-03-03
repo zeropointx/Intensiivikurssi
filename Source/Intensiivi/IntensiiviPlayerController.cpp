@@ -28,10 +28,20 @@ void AIntensiiviPlayerController::PlayerTick(float DeltaTime)
 	{
 		ToggleFlashLight();
 	}
+	if (WasInputKeyJustReleased(EKeys::R))
+	{
+		Ragdoll();
+	}
 }
-
+void AIntensiiviPlayerController::Ragdoll()
+{
+	//GetPawn()->
+	USkeletalMeshComponent *mesh = getComponentFromPawn<USkeletalMeshComponent>();
+	mesh->SetSimulatePhysics(!mesh->IsSimulatingPhysics());
+}
 void AIntensiiviPlayerController::ToggleFlashLight()
 {
+	/*
 	TArray<USpotLightComponent*> components;
 
 	GetPawn()->GetComponents(components);
@@ -40,8 +50,13 @@ void AIntensiiviPlayerController::ToggleFlashLight()
 		USpotLightComponent* flashLight = components[0];
 		flashLight->Intensity = (flashLight->Intensity == 0 ? 67412421 : 0);
 		//do stuff with FoundComp
-	}
+	}*/
+	USpotLightComponent* flashLight = getComponentFromPawn<USpotLightComponent>();
+	if (flashLight == nullptr)
+		flashLight = nullptr;
+	flashLight->Intensity = (flashLight->Intensity == 0 ? 674124 : 0);
 }
+
 void AIntensiiviPlayerController::SpawnGrenade()
 {
 	float forwardMultiplier = 5200.0f;

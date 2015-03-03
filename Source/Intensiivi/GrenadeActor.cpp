@@ -3,9 +3,8 @@
 #include "Intensiivi.h"
 #include "GrenadeActor.h"
 
-
 // Sets default values
-AGrenadeActor::AGrenadeActor(const class FPostConstructInitializeProperties& PCIP)
+AGrenadeActor::AGrenadeActor(const FObjectInitializer&PCIP)
 	:Super(PCIP)
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.

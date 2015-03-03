@@ -36,7 +36,7 @@ AIntensiiviCharacter::AIntensiiviCharacter(const FObjectInitializer& ObjectIniti
 	spotlightComponent = CreateDefaultSubobject<USpotLightComponent>(TEXT("Spotlight"));
 	//spotlightComponent->MoveComponent()
 	spotlightComponent->AttachTo(RootComponent);
-	spotlightComponent->Intensity = 67412421.0f;
+	spotlightComponent->Intensity = 674124.0f;
 	spotlightComponent->SetMobility(EComponentMobility::Movable);
 	FVector oldPos = spotlightComponent->GetComponentLocation();
 	FVector newTempPos = GetActorForwardVector() * 50;
@@ -44,5 +44,5 @@ AIntensiiviCharacter::AIntensiiviCharacter(const FObjectInitializer& ObjectIniti
 	spotlightComponent->SetRelativeLocation(newTempPos);
 	
 	GetMesh()->SetSimulatePhysics(true);
-
+	
 }

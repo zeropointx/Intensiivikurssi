@@ -15,7 +15,7 @@ class INTENSIIVI_API AGrenadeActor : public AActor
 
 public:	
 	// Sets default values for this actor's properties
-	AGrenadeActor(const class FPostConstructInitializeProperties& PCIP);
+	AGrenadeActor(const FObjectInitializer& PCIP);
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

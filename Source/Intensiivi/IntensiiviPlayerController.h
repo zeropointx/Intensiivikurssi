@@ -37,6 +37,22 @@ protected:
 	void SpawnGrenade();
 	//TOGGLE FLASHLIGHT ON AND OFF
 	void ToggleFlashLight();
+	//RAGDOLL
+	void Ragdoll();
+	template<class T>
+	T* getComponentFromPawn()
+	{
+		TArray<T*> components;
+
+		GetPawn()->GetComponents(components);
+		if (components.Num() > 0)
+		{
+			T* value = components[0];
+			return value;
+			//do stuff with FoundComp
+		}
+		return nullptr;
+	}
 };
 
 
